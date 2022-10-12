@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "hconcat": [
+    {
+      "data": {
+        "values": [
+          {"category": "America Obesity Rate in 1975", "value": 11.7},
+          {"category": "Otherwise", "value": 88.3}
+        ]
+      },
+      "encoding": {
+        "theta": {"field": "value", "type": "quantitative", "stack": true},
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["America Obesity Rate in 1975", "Otherwise"],
+            "range": ["#e45755", "#f0ecec"]
+          },
+          "legend": {
+            "orient": "none",
+            "title": null,
+            "columns": 1,
+            "legendX": 30,
+            "legendY": 200
+          }
+        }
+      },
+      "layer": [
+        {"mark": {"type": "arc", "outerRadius": 80}},
+        {"mark": {"type": "text", "radius": 90}},
+        {
+          "mark": {
+            "type": "text",
+            "text": "11.7",
+            "fontSize": 30,
+            "fill": "#7c7a78"
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {"category": "America Obesity Rate in 2016", "value": 37.3},
+          {"category": "Otherwise", "value": 62.7}
+        ]
+      },
+      "encoding": {
+        "theta": {"field": "value", "type": "quantitative", "stack": true},
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["America Obesity Rate in 2016", "Otherwise"],
+            "range": ["#e45755", "#f0ecec"]
+          },
+          "legend": {
+            "orient": "none",
+            "title": null,
+            "columns": 1,
+            "legendX": 30,
+            "legendY": 200
+          }
+        }
+      },
+      "layer": [
+        {"mark": {"type": "arc", "outerRadius": 80}},
+        {"mark": {"type": "text", "radius": 90}},
+        {
+          "mark": {
+            "type": "text",
+            "text": "37.3",
+            "fontSize": 30,
+            "fill": "#7c7a78"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}

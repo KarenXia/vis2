@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/number-of-deaths-by-risk-factor.csv"
+  },
+  "title":"Number of Obesity Death over Years",
+  "vconcat": [
+    {
+      "width": 700,
+      "height": 300,
+      "transform": [
+        {
+          "lookup": "Country",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/4_interactive_scatter_plot/data/COVID_19_10_Oct_2020.csv"
+            },
+            "key": "Country",
+            "fields": ["Continent"]
+          }
+        }
+      ],
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "timeUnit": "year",
+          "scale": {"domain": {"param": "time_brush"}},
+          "axis": {"title": "", "tickCount": 5, "grid": false}
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Obesity",
+          "title": "Count of Obesity Death"
+        },
+        "color": {"field": "Continent", "scale": {"scheme": "reds"}}
+      }
+    },
+    {
+      "width": 700,
+      "height": 60,
+      "mark": "line",
+      "params": [
+        {
+          "name": "time_brush",
+          "select": {"type": "interval", "encodings": ["x"]}
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "timeUnit": "year",
+          "axis": {"title": "Year", "format": "%Y"}
+        },
+        "y": {"aggregate": "sum", "field": "Obesity", "title": "Count"},
+        "color":{"value": "#c93306"}
+      }
+    }
+  ],
+  "config": {}
+}
+

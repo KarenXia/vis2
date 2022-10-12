@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A ranged dot plot that uses 'layer' to convey changing Daily Caloric Supply for the five most populous countries (between 1955 and 2000).",
+  "width":300,
+  "title":"Daily Caloric Supply for the 10 countries (in 1975 and 2016)",
+  "data": {"url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/share-of-adult-men-overweight-or-obese-vs-daily-supply-of-calories.csv"},
+  "transform": [
+    {
+      "filter": {
+        "field": "Country",
+        "oneOf": [
+          "China",
+          "India",
+          "United States",
+          "Indonesia",
+          "Brazil",
+          "Malaysia",
+          "Australia",
+          "United Kingdom",
+          "Germany",
+           "Russia"]
+      }
+    },
+    {
+      "filter": {
+        "field": "Year",
+        "oneOf": [1975, 2016]
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Daily caloric supply (OWID based on UN FAO & historical sources)",
+      "type": "quantitative",
+      "title": "Daily Caloric Supply for Obese or Overweight",
+      "scale":{
+        "domain":[0,4000]
+      }
+    },
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "title": "Country"
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {
+          "field": "Country",
+          "type": "nominal"
+        },
+        "color": {"value": "#db646f"}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
+      },
+      "encoding": {
+        "color": {
+          "field": "Year",
+          "type": "ordinal",
+          "scale": {
+            "domain": [1975, 2016],
+            "range": ["#e6959c", "#911a24"]
+          },
+          "title": "Year"
+        },
+        "size": {"value": 100},
+        "opacity": {"value": 1},
+        "tooltip":[
+          {
+            "field":"Year",
+            "type": "ordinal"
+          },
+          {
+            "field":"Country",
+            "type": "nominal"
+          },
+          {
+            "field":"Daily caloric supply (OWID based on UN FAO & historical sources)",
+            "type": "quantitative",
+            "title":"Daily Caloric Supply"
+          }
+
+        ]
+      }
+    }
+  ]
+  
+}
