@@ -1,0 +1,367 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "hconcat": [
+    {
+      "vconcat": [
+        {
+          "width": 350,
+          "title": "Mean BMI in Adult Females, 1975",
+          "layer": [
+            {
+              "data": {
+                "url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/mean-bmi-in-adult-women.csv"
+              },
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Country",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Indonesia",
+                      "Brazil",
+                      "Malaysia",
+                      "Australia",
+                      "United Kingdom",
+                      "Germany",
+                      "Russia"
+                    ]
+                  }
+                },
+                {"filter": {"field": "Year", "oneOf": [1975]}}
+              ],
+              "layer": [
+                {
+                  "mark": "bar",
+                  "encoding": {
+                    "x": {
+                      "field": "Country",
+                      "type": "nominal",
+                      "axis": {"labelAngle": 30}
+                    },
+                    "y": {"field": "Mean_BMI_female", "type": "quantitative"},
+                    "color": {"value": "#ccc6c5"}
+                  }
+                },
+                {
+                  "mark": "bar",
+                  "transform": [
+                    {"filter": "datum.Mean_BMI_female >= 25"},
+                    {"calculate": "25", "as": "baseline"}
+                  ],
+                  "encoding": {
+                    "x": {"field": "Country", "type": "nominal"},
+                    "y": {
+                      "field": "baseline",
+                      "type": "quantitative",
+                      "title": "BMI"
+                    },
+                    "y2": {"field": "Mean_BMI_female"},
+                    "color": {"value": "#e45755"},
+                    "tooltip": [
+                      {"field": "Country", "type": "nominal"},
+                      {
+                        "field": "Mean_BMI_female",
+                        "type": "quantitative",
+                        "format": ".2f"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "data": {"values": [{}]},
+              "encoding": {"y": {"datum": 25}},
+              "layer": [
+                {"mark": "rule"},
+                {
+                  "mark": {
+                    "type": "text",
+                    "baseline": "bottom",
+                    "dx": 30,
+                    "dy": 5,
+                    "x": "width",
+                    "text": "Overweight",
+                    "color": "#e45755"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "width": 350,
+          "title": "Mean BMI in Adult Males, 1975",
+          "layer": [
+            {
+              "data": {
+                "url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/mean-bmi-in-adult-males%20(1).csv"
+              },
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Country",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Indonesia",
+                      "Brazil",
+                      "Malaysia",
+                      "Australia",
+                      "United Kingdom",
+                      "Germany",
+                      "Russia"
+                    ]
+                  }
+                },
+                {"filter": {"field": "Year", "oneOf": [1975]}}
+              ],
+              "layer": [
+                {
+                  "mark": "bar",
+                  "encoding": {
+                    "x": {
+                      "field": "Country",
+                      "type": "nominal",
+                      "axis": {"labelAngle": 30}
+                    },
+                    "y": {"field": "Mean_BMI_male", "type": "quantitative"},
+                    "color": {"value": "#ccc6c5"}
+                  }
+                },
+                {
+                  "mark": "bar",
+                  "transform": [
+                    {"filter": "datum.Mean_BMI_male >= 25"},
+                    {"calculate": "25", "as": "baseline"}
+                  ],
+                  "encoding": {
+                    "x": {"field": "Country", "type": "nominal"},
+                    "y": {
+                      "field": "baseline",
+                      "type": "quantitative",
+                      "title": "BMI"
+                    },
+                    "y2": {"field": "Mean_BMI_male"},
+                    "color": {"value": "#e45755"},
+                    "tooltip": [
+                      {"field": "Country", "type": "nominal"},
+                      {
+                        "field": "Mean_BMI_female",
+                        "type": "quantitative",
+                        "format": ".2f"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "data": {"values": [{}]},
+              "encoding": {"y": {"datum": 25}},
+              "layer": [
+                {"mark": "rule"},
+                {
+                  "mark": {
+                    "type": "text",
+                    "baseline": "bottom",
+                    "dx": 30,
+                    "dy": 6,
+                    "x": "width",
+                    "text": "Overweight",
+                    "color": "#e45755"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vconcat": [
+        {
+          "width": 300,
+          "title": "Mean BMI in Adult Females, 2016",
+          "layer": [
+            {
+              "data": {
+                "url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/mean-bmi-in-adult-women.csv"
+              },
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Country",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Indonesia",
+                      "Brazil",
+                      "Malaysia",
+                      "Australia",
+                      "United Kingdom",
+                      "Germany",
+                      "Russia"
+                    ]
+                  }
+                },
+                {"filter": {"field": "Year", "oneOf": [2016]}}
+              ],
+              "layer": [
+                {
+                  "mark": "bar",
+                  "encoding": {
+                    "x": {
+                      "field": "Country",
+                      "type": "nominal",
+                      "axis": {"labelAngle": 30}
+                    },
+                    "y": {"field": "Mean_BMI_female", "type": "quantitative"},
+                    "color": {"value": "#ccc6c5"}
+                  }
+                },
+                {
+                  "mark": "bar",
+                  "transform": [
+                    {"filter": "datum.Mean_BMI_female >= 25"},
+                    {"calculate": "25", "as": "baseline"},
+                    {"calculate": "30", "as": "obesity"}
+                  ],
+                  "encoding": {
+                    "x": {"field": "Country", "type": "nominal"},
+                    "y": {
+                      "field": "baseline",
+                      "type": "quantitative",
+                      "title": "BMI"
+                    },
+                    "y2": {"field": "Mean_BMI_female"},
+                    "color": {"value": "#e45755"},
+                    "tooltip": [
+                      {"field": "Country", "type": "nominal"},
+                      {
+                        "field": "Mean_BMI_female",
+                        "type": "quantitative",
+                        "format": ".2f"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "data": {"values": [{}]},
+              "encoding": {"y": {"datum": 25}},
+              "layer": [
+                {"mark": "rule"},
+                {
+                  "mark": {
+                    "type": "text",
+                    "baseline": "bottom",
+                    "dx": 30,
+                    "dy": 5,
+                    "x": "width",
+                    "text": "Overweight",
+                    "color": "#e45755"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "width": 300,
+          "title": "Mean BMI in Adult Males, 2016",
+          "layer": [
+            {
+              "data": {
+                "url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/mean-bmi-in-adult-males%20(1).csv"
+              },
+              "transform": [
+                {
+                  "filter": {
+                    "field": "Country",
+                    "oneOf": [
+                      "China",
+                      "India",
+                      "United States",
+                      "Indonesia",
+                      "Brazil",
+                      "Malaysia",
+                      "Australia",
+                      "United Kingdom",
+                      "Germany",
+                      "Russia"
+                    ]
+                  }
+                },
+                {"filter": {"field": "Year", "oneOf": [2016]}}
+              ],
+              "layer": [
+                {
+                  "mark": "bar",
+                  "encoding": {
+                    "x": {
+                      "field": "Country",
+                      "type": "nominal",
+                      "axis": {"labelAngle": 30}
+                    },
+                    "y": {"field": "Mean_BMI_male", "type": "quantitative"},
+                    "color": {"value": "#ccc6c5"}
+                  }
+                },
+                {
+                  "mark": "bar",
+                  "transform": [
+                    {"filter": "datum.Mean_BMI_male >= 25"},
+                    {"calculate": "25", "as": "baseline"}
+                  ],
+                  "encoding": {
+                    "x": {"field": "Country", "type": "nominal"},
+                    "y": {
+                      "field": "baseline",
+                      "type": "quantitative",
+                      "title": "BMI"
+                    },
+                    "y2": {"field": "Mean_BMI_male"},
+                    "color": {"value": "#e45755"},
+                    "tooltip": [
+                      {"field": "Country", "type": "nominal"},
+                      {
+                        "field": "Mean_BMI_female",
+                        "type": "quantitative",
+                        "format": ".2f"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "data": {"values": [{}]},
+              "encoding": {"y": {"datum": 25}},
+              "layer": [
+                {"mark": "rule"},
+                {
+                  "mark": {
+                    "type": "text",
+                    "baseline": "bottom",
+                    "dx": 30,
+                    "dy": 5,
+                    "x": "width",
+                    "text": "Overweight",
+                    "color": "#e45755"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
