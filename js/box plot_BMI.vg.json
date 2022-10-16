@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Body Mass Index every 10 Years",
+  "background": "transparent",
+
   "width": 300,
   "height": 200,
   "data": {
