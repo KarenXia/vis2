@@ -1,8 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 400,
-  "title": "Number of Deaths by Risk Factor, World, 2019",
+  "width": 550,
+  "height": 350,
+  "background": "transparent",
+
+  "config": {"view": {"stroke": null}},
   "data": {
     "url": "https://raw.githubusercontent.com/KarenXia/fit3179/main/data/number-of-deaths-by-risk-factor.csv"
   },
@@ -92,6 +94,97 @@
   },
   "layer": [
     {
+      "mark":{
+        "type": "text",
+        "color":"black",
+        "fontSize":10,
+        "text":"Obesity is a risk factor for several of  the world’s leading causes of death, abc including high blood pressure",
+        "align":"left", 
+        "lineBreak":"abc",    
+        "fontStyle": "italic",
+        "fontWeight":"lighter"
+      },
+      "encoding": {
+        "x":{
+          "datum":3,
+          "type": "quantitative",
+          "axis": {"grid": false, "ticks": false}        
+        },
+        "y":{
+          "datum":700000,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark":{
+        "type": "text",
+        "color":"#a6cee3",
+        "fontSize":10,
+        "text":"Somalia: lowest rates of abc premature obesity death in 2019 ",
+        "align":"left",
+        "fontStyle": "italic",
+        "fontWeight":"lighter",
+        "lineBreak":"abc"
+      },
+      "encoding": {
+        "x":{
+          "datum": 15000,
+          "type": "quantitative",
+          "axis": {"grid": false, "ticks": false}        
+        },
+        "y":{
+          "datum":2000,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark":{
+        "type": "text",
+        "color":"#a65628",
+        "fontSize":10,
+        "text":"Fiji: highest rates of abc premature obesity death in 2019 ",
+        "align":"right",
+        "fontStyle": "italic",
+        "fontWeight":"lighter",
+        "lineBreak":"abc"
+      },
+      "encoding": {
+        "x":{
+          "datum":500,
+          "type": "quantitative",
+          "axis": {"grid": false, "ticks": false}        
+        },
+        "y":{
+          "datum":3000,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "firebrick"
+      },
+      "transform": [
+        {
+          "regression": "Obesity",
+          "on": "High_systolic_blood_pressure"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "High_systolic_blood_pressure",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "Obesity",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
       "mark": "circle",
       "encoding": {
         "size": {
@@ -165,7 +258,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Fiji' ||  datum['Country'] == 'United States'",
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Vietnam' || datum['Country'] == 'Australia' || datum['Country'] == 'Germany' || datum['Country'] == 'Fiji' || datum['Country'] == 'India' ||  datum['Country'] == 'United States'",
             "value": 1
           },
           "value": 0
@@ -194,6 +287,5 @@
         ]
       }
     }
-  ],
-  "config": {}
+  ]
 }
