@@ -28,7 +28,7 @@
         "min": 0,
         "max": 30,
         "step": 5,
-        "name": "Minimum Deat Rate: "
+        "name": "Minimum Death Rate: "
       }
     },
     {
