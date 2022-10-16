@@ -1,8 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A simple bar chart with embedded data.",
-  "width": 300,
+  "background": "transparent",
+  "config": {"view": {"stroke": null}},
   "title":"Number of Deaths by Risk Factor (in million), World, 2019",
+  "width":180,
   "data": {
     "values": [
       {"risk factor": "High Blood Pressure", "value": 10.85},
@@ -29,12 +31,13 @@
         "x": {
           "field": "value",
           "type": "quantitative",
+          "axis":null,
           "title": "Number of death (in million)"
         },
         "color": {
           "condition": [
             {
-              "value": "#e45755",
+              "value": "#a63603",
               "test": {"field": "risk factor", "oneOf": ["Obesity"]}
             }
           ],
@@ -42,10 +45,8 @@
         },
         "tooltip": [
           {"field": "risk factor", "type": "nominal"},
-          {"field": "value", "type": "quantitative"}
+          {"field": "value", "type": "quantitative","title":"Number of Death (in million)"}
         ]
       }
     }
-  ],
-  "config": {}
-}
+  ]}
