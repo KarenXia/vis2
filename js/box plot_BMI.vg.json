@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Body Mass Index every 10 Years",
+  "width": 300,
+  "height": 200,
+  "data": {
+    "values": [
+      {
+        "Year": "2016",
+        "lower": 19.95,
+        "q1": 22.03,
+        "median": 24.29,
+        "q3": 25.88,
+        "upper": 33.56,
+        "outliers": []
+      },
+      {
+        "Year": "2006",
+        "lower": 19.56,
+        "q1": 22.85,
+        "median": 25.26,
+        "q3": 26.56,
+        "upper": 32.4,
+        "outliers": []
+      },
+      {
+        "Year": "1996",
+        "lower": 18.63,
+        "q1": 22.02,
+        "median": 24.46,
+        "q3": 25.77,
+        "upper": 32.04,
+        "outliers": []
+      },
+      {
+        "Year": "1976",
+        "lower": 17.74,
+        "q1": 19.95,
+        "median": 22.61,
+        "q3": 25.26,
+        "upper": 31.22,
+        "outliers": []
+      },
+      {
+        "Year": "1986",
+        "lower": 18.04,
+        "q1": 21.08,
+        "median": 23.57,
+        "q3": 25.03,
+        "upper": 31.82,
+        "outliers": []
+      }
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "Year",
+      "type": "nominal",
+      "title": "Year",
+      "axis": {"grid": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule"},
+      "encoding": {
+        "x": {
+          "field": "lower",
+          "type": "quantitative",
+          "scale": {"zero": false},
+          "title": "Body Mass Index"
+        },
+        "x2": {"field": "upper"}
+      }
+    },
+    {
+      "mark": {"type": "bar", "size": 16, "color": "#a63603"},
+      "encoding": {
+        "x": {"field": "q1", "type": "quantitative"},
+        "x2": {"field": "q3"},
+        "tooltip": [
+          {"field": "q1", "type": "quantitative", "title": "1st quartile"},
+          {"field": "q3", "type": "quantitative", "title": "3rd quartile"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "tick", "color": "white", "size": 14},
+      "encoding": {
+        "x": {"field": "median", "type": "quantitative"},
+        "tooltip": {
+          "field": "median",
+          "type": "quantitative",
+          "title": "median"
+        }
+      }
+    },
+    {
+      "transform": [{"flatten": ["outliers"]}],
+      "mark": {"type": "point", "style": "boxplot-outliers"},
+      "encoding": {"x": {"field": "outliers", "type": "quantitative"}}
+    }
+  ],
+  "config": {}
+}
