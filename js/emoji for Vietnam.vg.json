@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {"view": {"stroke": ""}},
+  "background": "transparent",
+
+  "title": "Average Food Consumption by a Vietnamese each year",
+  "width": 300,
+  "height": 200,
+  "data": {
+    "values": [
+      {"country": "Vietnam", "animal": "grains"},
+      {"country": "Vietnam", "animal": "grains"},
+      {"country": "Vietnam", "animal": "grains"},
+      {"country": "Vietnam", "animal": "grains"},
+      {"country": "Vietnam", "animal": "grains"},
+      {"country": "Vietnam", "animal": "grains"},
+      {"country": "Vietnam", "animal": "vegetables"},
+      {"country": "Vietnam", "animal": "vegetables"},
+      {"country": "Vietnam", "animal": "vegetables"},
+      {"country": "Vietnam", "animal": "vegetables"},
+      {"country": "Vietnam", "animal": "pigs"},
+      {"country": "Vietnam", "animal": "pigs"},
+      {"country": "Vietnam", "animal": "eggs"},
+      {"country": "Vietnam", "animal": "beef"}
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "{'grains':'🌾','vegetables':'🥬','beef':'🐂', 'pigs': '🐖', 'eggs': '🥚','chicken':'🐓'}[datum.animal]",
+      "as": "emoji"
+    },
+    {"window": [{"op": "rank", "as": "rank"}], "groupby": ["country", "animal"]}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "text", "baseline": "middle"},
+      "encoding": {
+        "x": {"field": "rank", "type": "ordinal", "axis": null},
+        "y": {"field": "animal", "type": "nominal", "axis": null, "sort": null},
+        "text": {"field": "emoji", "type": "nominal"},
+        "size": {"value": 20}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "Each emoji represent 1 pound weight of food",
+        "fontSize": 11,
+        "align": "right",
+        "dx": 40,
+        "dy": 120
+      }
+    }
+  ]
+}
