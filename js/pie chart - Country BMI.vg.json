@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Ingredients used to make wine.",
+
+  "width": 300,
+  "height": 200,
+  
+  "data": {
+    "values": [
+      {"Category": "Underweight", "value": 10, "percentage": "4.76%"},
+      {"Category": "Normal Weight", "value": 60, "percentage": "28.57%"},
+      {"Category": "Overweight", "value": 120, "percentage": "57.14%"},
+      {"Category": "Obese", "value": 20, "percentage": "9.52%"}
+      ]
+  },
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "null"}},
+    {
+      "mark": {"type": "text", "radiusOffset": 12},
+      "encoding": {"text": {"field": "percentage", "type": "nominal"}}
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "value", "type": "quantitative", "stack": true},
+    "radius": {
+      "field": "value",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
+    },
+    "color": {
+      "field": "Category",
+      "type": "nominal",
+      "legend": {"orient": "bottom", "direction": "horizontal"},
+      "scale": {
+        "type": "linear",
+        "domain": ["Underweight", "Normal Weight", "Overweight","Obese"],
+        "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+      }
+    }
+  },
+  "background": "transparent",
+  "config": {"view": {"stroke": "transparent"}}
+}
