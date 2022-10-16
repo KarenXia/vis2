@@ -1,11 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+
   "hconcat": [
     {
       "vconcat": [
         {
-          "width": 350,
-          "title": "Mean BMI in Adult Females, 1975",
+          "width": 300,
+          "title": "Mean BMI in Adult Females, 1990",
           "layer": [
             {
               "data": {
@@ -19,8 +21,8 @@
                       "China",
                       "India",
                       "United States",
-                      "Indonesia",
-                      "Brazil",
+                      "Vietnam",
+                      "Nauru",
                       "Malaysia",
                       "Australia",
                       "United Kingdom",
@@ -29,7 +31,7 @@
                     ]
                   }
                 },
-                {"filter": {"field": "Year", "oneOf": [1975]}}
+                {"filter": {"field": "Year", "oneOf": [1990]}}
               ],
               "layer": [
                 {
@@ -58,11 +60,12 @@
                       "title": "BMI"
                     },
                     "y2": {"field": "Mean_BMI_female"},
-                    "color": {"value": "#e45755"},
+                    "color": {"value": "#a63603"},
                     "tooltip": [
                       {"field": "Country", "type": "nominal"},
                       {
                         "field": "Mean_BMI_female",
+                        "title":"Mean Body Mass Index of Females",
                         "type": "quantitative",
                         "format": ".2f"
                       }
@@ -84,7 +87,7 @@
                     "dy": 5,
                     "x": "width",
                     "text": "Overweight",
-                    "color": "#e45755"
+                    "color": "#a63603"
                   }
                 }
               ]
@@ -92,8 +95,8 @@
           ]
         },
         {
-          "width": 350,
-          "title": "Mean BMI in Adult Males, 1975",
+          "width": 300,
+          "title": "Mean BMI in Adult Males, 1990",
           "layer": [
             {
               "data": {
@@ -107,8 +110,8 @@
                       "China",
                       "India",
                       "United States",
-                      "Indonesia",
-                      "Brazil",
+                      "Vietnam",
+                      "Nauru",
                       "Malaysia",
                       "Australia",
                       "United Kingdom",
@@ -117,7 +120,7 @@
                     ]
                   }
                 },
-                {"filter": {"field": "Year", "oneOf": [1975]}}
+                {"filter": {"field": "Year", "oneOf": [1990]}}
               ],
               "layer": [
                 {
@@ -146,11 +149,12 @@
                       "title": "BMI"
                     },
                     "y2": {"field": "Mean_BMI_male"},
-                    "color": {"value": "#e45755"},
+                    "color": {"value": "#a63603"},
                     "tooltip": [
                       {"field": "Country", "type": "nominal"},
                       {
-                        "field": "Mean_BMI_female",
+                        "field": "Mean_BMI_male",
+                        "title":"Mean Boday Mass Index of Males",
                         "type": "quantitative",
                         "format": ".2f"
                       }
@@ -172,7 +176,7 @@
                     "dy": 6,
                     "x": "width",
                     "text": "Overweight",
-                    "color": "#e45755"
+                    "color": "#a63603"
                   }
                 }
               ]
@@ -199,8 +203,8 @@
                       "China",
                       "India",
                       "United States",
-                      "Indonesia",
-                      "Brazil",
+                      "Vietnam",
+                      "Nauru",
                       "Malaysia",
                       "Australia",
                       "United Kingdom",
@@ -239,12 +243,14 @@
                       "title": "BMI"
                     },
                     "y2": {"field": "Mean_BMI_female"},
-                    "color": {"value": "#e45755"},
+                    "color": {"value": "#a63603"},
                     "tooltip": [
                       {"field": "Country", "type": "nominal"},
                       {
                         "field": "Mean_BMI_female",
                         "type": "quantitative",
+                        "title":
+                        "Mean Body Mass Index of Females",
                         "format": ".2f"
                       }
                     ]
@@ -265,7 +271,7 @@
                     "dy": 5,
                     "x": "width",
                     "text": "Overweight",
-                    "color": "#e45755"
+                    "color": "#a63603"
                   }
                 }
               ]
@@ -288,8 +294,8 @@
                       "China",
                       "India",
                       "United States",
-                      "Indonesia",
-                      "Brazil",
+                      "Vietnam",
+                      "Nauru",
                       "Malaysia",
                       "Australia",
                       "United Kingdom",
@@ -327,12 +333,14 @@
                       "title": "BMI"
                     },
                     "y2": {"field": "Mean_BMI_male"},
-                    "color": {"value": "#e45755"},
+                    "color": {"value": "#a63603"},
                     "tooltip": [
                       {"field": "Country", "type": "nominal"},
                       {
-                        "field": "Mean_BMI_female",
+                        "field": "Mean_BMI_male",
                         "type": "quantitative",
+                        "title":
+                        "Mean Body Mass Index of Males",
                         "format": ".2f"
                       }
                     ]
@@ -353,7 +361,7 @@
                     "dy": 5,
                     "x": "width",
                     "text": "Overweight",
-                    "color": "#e45755"
+                    "color": "#a63603"
                   }
                 }
               ]
