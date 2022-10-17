@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Obesity Visualization</title>
+  <title>Multiple Visualisations | An Example</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -32,10 +32,13 @@
     <div class = "first_header">
       <!-- start of header -->
       <div class = "header">
-        <img src="images/title.png" width="850" height="200">
+        <img src="/images/title.png" width="850" height="200">
       </div>
       <div class = "border">
       </div>
+      <button onclick="returnTop()" id="Button" title="Go to top">
+        <i class='bx bx-up-arrow-alt'> ⬆️</i>
+      </button>
       <!-- end of header -->
     </div>
 
@@ -356,6 +359,27 @@
 
     
   </div> <!-- end page -->
+
+  <!-- functions -->
+  <script>
+    // return to the top
+  function returnTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  //Button dont always appear
+  var goUpButton = document.getElementById("upButton");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+      goUpButton.style.display = "block";
+    } else {
+      goUpButton.style.display = "none";
+    }
+  }
+  </script>
 
   <script type="text/javascript">
     var specVis1 = "js/bar_chart_of_risk_factor.vg.json";
