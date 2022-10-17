@@ -82,6 +82,7 @@
     },
     
     {
+      "title":"Use this line chart to filter out the data based on time",
       "width": 350,
       "height": 60,
       "mark": "line",
